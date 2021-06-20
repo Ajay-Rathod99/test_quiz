@@ -17,15 +17,9 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
-from django.views.static import serve
-from django.conf.urls import url
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.homepage, name= 'homepage'),
     path('question1', views.question1, name= 'question1'),
     path('result', views.result, name= 'result'),    
-
-    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
-    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 ]
